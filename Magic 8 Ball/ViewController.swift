@@ -9,10 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
+  @IBOutlet weak var magicBallImage: UIImageView!
 
+  @IBAction func askButton(_ sender: UIButton) {
+    magicBallImage.image = UIImage(named: getRandomBall())
+  }
 
-
+  func getRandomBall() -> String {
+      let randomInt: Int = Int.random(in: 1...5)
+      switch randomInt {
+        case 1: return "ball1"
+        case 2: return "ball2"
+        case 3: return "ball3"
+        case 4: return "ball4"
+        case 5: return "ball5"
+        default: return ""
+      }
+    }
 }
 
